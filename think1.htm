@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>think1 - LiveChart2_ReadingNote</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/theme_colors.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles/vs.css">
+    <link rel="stylesheet" href="css/font-awesome.4.5.0.min.css">
+</head>
+<body role="document">
+    <div class="grid-for-nav">
+        <nav data-toggle="nav-shift" class="nav-side stickynav">
+            <div class="side-nav-search">
+                <a href="index.htm"><i class="fa fa-home"></i> LiveChart2_ReadingNote</a>
+                <div role="search">
+                    <form id="search-form" class="form" action="Docnet_search.htm" method="get">
+                        <input type="text" name="q" placeholder="Search docs" />
+                    </form>
+                </div>
+            </div>
+            <div class="menu menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+<ul>
+<li class="tocentry"><a href="ProjectCodeSummary_withNotes.htm">Home</a>
+</li>
+
+<li class="tocentry"><a href="ProjectCodeSummary_Bref.htm">ProjectCodeSummary_Bref</a>
+</li>
+<li class="tocentry current"><a class="current" href="think1.htm">think1</a>
+<ul class="currentrelative">
+<li class="tocentry"><a href="#一项目定位与设计哲学">一、项目定位与设计哲学</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#跨平台架构设计">1. 跨平台架构设计</a></li>
+
+<li class="tocentry"><a href="#依赖倒置原则dip的应用">2. 依赖倒置原则（DIP）的应用</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#二核心架构模式">二、核心架构模式</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#mvvm模式在图表库中的变体">1. MVVM模式（在图表库中的变体）</a></li>
+
+<li class="tocentry"><a href="#策略模式的应用">2. 策略模式的应用</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#三关键设计决策">三、关键设计决策</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#泛型设计实现类型安全">1. 泛型设计实现类型安全</a></li>
+
+<li class="tocentry"><a href="#动画系统的状态机设计">2. 动画系统的状态机设计</a></li>
+
+<li class="tocentry"><a href="#坐标系统的设计">3. 坐标系统的设计</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#四wpf平台适配策略">四、WPF平台适配策略</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#自定义控件模板设计">1. 自定义控件模板设计</a></li>
+
+<li class="tocentry"><a href="#双画布架构">2. 双画布架构</a></li>
+
+<li class="tocentry"><a href="#事件处理与性能优化">3. 事件处理与性能优化</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#五数据绑定与更新机制">五、数据绑定与更新机制</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#响应式数据更新">1. 响应式数据更新</a></li>
+
+<li class="tocentry"><a href="#边界缓存优化">2. 边界缓存优化</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#六渲染性能优化策略">六、渲染性能优化策略</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#脏标记模式">2. 脏标记模式</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#七可扩展性设计">七、可扩展性设计</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#插件式几何系统">1. 插件式几何系统</a></li>
+
+<li class="tocentry"><a href="#配置系统">2. 配置系统</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#八价值总结">八、价值总结</a></li>
+<li class="tocentry">
+<ul class="currentrelative">
+<li class="tocentry"><a href="#优秀实践展示">1. 优秀实践展示</a></li>
+
+<li class="tocentry"><a href="#设计模式应用">2. 设计模式应用</a></li>
+
+<li class="tocentry"><a href="#工程化思维">3. 工程化思维</a></li>
+
+
+</ul>
+</li>
+
+<li class="tocentry"><a href="#九给学习者的建议">九、给学习者的建议</a></li>
+
+
+
+</ul>
+</ul>
+				<div class="toc-footer">
+					<span class="text-small">
+						<hr/>
+						<a href="https://github.com/FransBouma/DocNet" target="_blank">Made with <i class="fa fa-github"></i> DocNet</a>
+					</span>
+				</div>	
+			</div>
+            &nbsp;
+        </nav>
+        <section data-toggle="nav-shift" class="nav-content-wrap">
+            <nav class="nav-top" role="navigation" aria-label="top navigation">
+                <i data-toggle="nav-top" class="fa fa-bars"></i>
+                <a href="index.htm">LiveChart2_ReadingNote</a>
+            </nav>
+            <div class="nav-content">
+                <div role="navigation" aria-label="breadcrumbs navigation">
+                    <div class="breadcrumbs">
+<ul><li><a href="ProjectCodeSummary_withNotes.htm">Home</a></li> / <li><a href="think1.htm">think1</a></li></ul>
+					
+                    </div>
+                    <hr />
+                </div>
+                <div role="main">
+                    <div class="section">
+<h1 id="livechartscore.wpf-项目开发思路分析">LiveChartsCore.WPF 项目开发思路分析<a class="headerlink" href="#livechartscore.wpf-项目开发思路分析" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h2 id="一项目定位与设计哲学">一、项目定位与设计哲学<a class="headerlink" href="#一项目定位与设计哲学" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="跨平台架构设计">1. 跨平台架构设计<a class="headerlink" href="#跨平台架构设计" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<p>核心思想：“一次编写，多平台渲染”
+- 将图表逻辑与渲染逻辑分离
+- LiveCharts.Core 定义通用接口和算法
+- LiveChartsCore.SkiaSharp 提供跨平台渲染实现
+- LiveChartsCore.WPF 提供WPF平台集成</p>
+<p>教学意义：</p>
+<pre><code class="cs">// 抽象层：定义图表行为
+public interface IChartView&lt;TDrawingContext&gt;
+{
+    // 图表逻辑，与平台无关
+}
+
+// 实现层：平台特定实现
+public class CartesianChart : Control, IChartView&lt;SkiaDrawingContext&gt;
+{
+    // WPF特定实现
+}
+</code></pre>
+
+<h3 id="依赖倒置原则dip的应用">2. 依赖倒置原则（DIP）的应用<a class="headerlink" href="#依赖倒置原则dip的应用" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<p>设计思路：高层模块（WPF控件）不依赖低层模块（SkiaSharp），两者都依赖抽象接口</p>
+<pre><code class="cs">// 抽象接口
+public interface IChartView&lt;TDrawingContext&gt;
+public interface IAxis&lt;TDrawingContext&gt;
+public interface ISeries&lt;TDrawingContext&gt;
+
+// WPF层通过接口与核心层交互
+</code></pre>
+
+<h2 id="二核心架构模式">二、核心架构模式<a class="headerlink" href="#二核心架构模式" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="mvvm模式在图表库中的变体">1. MVVM模式（在图表库中的变体）<a class="headerlink" href="#mvvm模式在图表库中的变体" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="graph">LR
+    A[数据模型&lt;br/&gt;ChartPoint&amp;lt;T&amp;gt;] --&gt; B[视图模型&lt;br/&gt;Series/IAxis]
+    B --&gt; C[视图&lt;br/&gt;CartesianChart]
+    C --&gt; D[渲染引擎&lt;br/&gt;SkiaSharp]
+</code></pre>
+
+<p>说明：
+- 数据模型：ChartPoint<T> 封装图表数据点
+- 视图模型：Series 系列管理数据和样式
+- 视图：CartesianChart WPF控件，处理UI交互
+- 渲染引擎：SkiaSharp执行实际绘制</p>
+<h3 id="策略模式的应用">2. 策略模式的应用<a class="headerlink" href="#策略模式的应用" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<p>图表元素的可插拔设计：</p>
+<p>// 轴标签格式化策略
+public Func&lt;double, AxisTick, string&gt; Labeler { get; set; }</p>
+<p>// 工具提示查找策略
+public TooltipFindingStrategy TooltipFindingStrategy { get; set; }</p>
+<p>// 图例位置策略
+public LegendPosition LegendPosition { get; set; }</p>
+<h2 id="三关键设计决策">三、关键设计决策<a class="headerlink" href="#三关键设计决策" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="泛型设计实现类型安全">1. 泛型设计实现类型安全<a class="headerlink" href="#泛型设计实现类型安全" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">// 三层泛型参数设计
+public class ColumnSeries&lt;TModel, TVisual, TDrawingContext&gt;
+    : Series&lt;TModel, TVisual, TDrawingContext&gt;
+    where TDrawingContext : DrawingContext
+    where TVisual : ISizedGeometry&lt;TDrawingContext&gt;, 
+                    IHighlightableGeometry&lt;TDrawingContext&gt;, new()
+</code></pre>
+
+<p>// 解读：
+// 1. TModel: 数据类型（double, int, 自定义类型）
+// 2. TVisual: 视觉元素类型（矩形、圆形等）
+// 3. TDrawingContext: 绘制上下文类型（SkiaSharp、其他渲染引擎）</p>
+<h3 id="动画系统的状态机设计">2. 动画系统的状态机设计<a class="headerlink" href="#动画系统的状态机设计" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<p>基于时间的动画状态管理：</p>
+<pre><code class="cs">public class NaturalElement : IAnimatable
+{
+    internal long startTime;    // 动画开始时间
+    internal long endTime;      // 动画结束时间
+    internal long currentTime;  // 当前时间
+    internal Animation transition;  // 动画定义
+    
+    // 状态机核心方法
+    public void SetTime(long frameTime)
+    {
+        if (isCompleted) return;
+        
+        currentTime = frameTime;
+        if (currentTime &gt;= endTime)
+        {
+            isCompleted = true;
+            TransitionCompleted?.Invoke(this);
+        }
+    }
+}
+</code></pre>
+
+<h3 id="坐标系统的设计">3. 坐标系统的设计<a class="headerlink" href="#坐标系统的设计" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<p>核心问题：如何将数据坐标转换为屏幕坐标？</p>
+<p>解决方案：ScaleContext 类实现坐标转换</p>
+<pre><code class="cs">public class ScaleContext
+{
+    // 核心转换公式：data -&gt; UI
+    private float ScaleXToUI(float value) =&gt; o + (m * (max - value) + d);
+    private float ScaleYToUI(float value) =&gt; o + (d - (m * (max - value) + d));
+}
+</code></pre>
+
+<p>注解：
+- o: 画布原点偏移
+- m: 缩放比例因子
+- d: 画布尺寸
+- max: 数据最大值</p>
+<h2 id="四wpf平台适配策略">四、WPF平台适配策略<a class="headerlink" href="#四wpf平台适配策略" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="自定义控件模板设计">1. 自定义控件模板设计<a class="headerlink" href="#自定义控件模板设计" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">&lt;!-- 说明：控件模板定义图表结构 --&gt;
+&lt;ControlTemplate TargetType=&quot;{x:Type local:CartesianChart}&quot;&gt;
+    &lt;DockPanel LastChildFill=&quot;true&quot;&gt;
+        &lt;!-- 工具提示：浮层显示 --&gt;
+        &lt;local:DefaultTooltip x:Name=&quot;tooltip&quot; /&gt;
+        
+        &lt;!-- 图例：可停靠 --&gt;
+        &lt;local:DefaultLegend x:Name=&quot;legend&quot; /&gt;
+        
+        &lt;!-- 画布：核心绘制区域 --&gt;
+        &lt;local:NaturalGeometriesCanvas x:Name=&quot;canvas&quot; /&gt;
+    &lt;/DockPanel&gt;
+&lt;/ControlTemplate&gt;
+
+</code></pre>
+
+<h3 id="双画布架构">2. 双画布架构<a class="headerlink" href="#双画布架构" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<p>思路：分离逻辑画布与物理画布</p>
+<pre><code class="cs">// 1. 逻辑画布：管理绘制任务和动画
+public class Canvas&lt;TDrawingContext&gt;
+{
+    private HashSet&lt;IDrawableTask&lt;TDrawingContext&gt;&gt; paintTasks;
+    public void DrawFrame(TDrawingContext context) { ... }
+}
+
+// 2. 物理画布：WPF与SkiaSharp的桥接
+public class NaturalGeometriesCanvas : Control
+{
+    private Canvas&lt;SkiaDrawingContext&gt; canvasCore;  // 逻辑画布
+    private SKElement skiaElement;                  // SkiaSharp物理画布
+}
+
+</code></pre>
+
+<h3 id="事件处理与性能优化">3. 事件处理与性能优化<a class="headerlink" href="#事件处理与性能优化" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">// 使用节流器避免频繁更新
+public class CartesianChart : Control
+{
+    private readonly ActionThrottler mouseMoveThrottler;
+    
+    private void OnMouseMove(object sender, MouseEventArgs e)
+    {
+        // 节流处理：每10ms最多处理一次
+        mouseMoveThrottler.TryRun();
+    }
+}
+
+</code></pre>
+
+<h2 id="五数据绑定与更新机制">五、数据绑定与更新机制<a class="headerlink" href="#五数据绑定与更新机制" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="响应式数据更新">1. 响应式数据更新<a class="headerlink" href="#响应式数据更新" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">public class Series&lt;TModel, TVisual, TDrawingContext&gt; : IDisposable
+{
+    private INotifyCollectionChanged previousValuesNCCInstance;
+    
+    // 监听集合变化
+    private void OnValuesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        // 数据变化时通知图表更新
+        NotifySubscribers();
+    }
+}
+
+</code></pre>
+
+<h3 id="边界缓存优化">2. 边界缓存优化<a class="headerlink" href="#边界缓存优化" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">// 缓存数据边界，避免重复计算
+protected CartesianBounds _currentBounds = null;
+
+public virtual CartesianBounds GetBounds(SizeF controlSize, IAxis&lt;TDrawingContext&gt; x, IAxis&lt;TDrawingContext&gt; y)
+{
+    if (_currentBounds != null &amp;&amp; implementsICC &amp;&amp; implementsINCC &amp;&amp; implementsINPC)
+        return _currentBounds;
+    
+    // 重新计算边界
+    // ...
+    _currentBounds = bounds;
+    return bounds;
+}
+</code></pre>
+
+<h2 id="六渲染性能优化策略">六、渲染性能优化策略<a class="headerlink" href="#六渲染性能优化策略" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<pre><code class="cs">### 1. 批处理绘制
+public class Canvas&lt;TDrawingContext&gt;
+{
+    public void DrawFrame(TDrawingContext context)
+    {
+        foreach (var paint in paintTasks.OrderBy(x =&gt; x.ZIndex))
+        {
+            // 批量绘制相同类型的几何元素
+            foreach (var geometry in paint.GetGeometries())
+            {
+                geometry.Draw(context);
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<h3 id="脏标记模式">2. 脏标记模式<a class="headerlink" href="#脏标记模式" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">public class Canvas&lt;TDrawingContext&gt;
+{
+    private bool isValid;  // 脏标记
+    
+    public void Invalidate()
+    {
+        isValid = false;
+        Invalidated?.Invoke(this);
+    }
+    
+    private async void RunDrawingLoop()
+    {
+        // 只在无效时重绘
+        while (!canvasCore.IsValid)
+        {
+            skiaElement.InvalidateVisual();
+            await Task.Delay(ts);
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="七可扩展性设计">七、可扩展性设计<a class="headerlink" href="#七可扩展性设计" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="插件式几何系统">1. 插件式几何系统<a class="headerlink" href="#插件式几何系统" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">// 用户可以自定义几何形状
+public class HelloGeometry : SVGPathGeometry
+{
+    public HelloGeometry()
+        : base(helloPath)  // 传入自定义SVG路径
+    {
+    }
+}
+
+// 在系列中使用自定义几何
+public class HelloColumnSeries : ColumnSeries&lt;double, HelloGeometry&gt;
+{
+}
+
+</code></pre>
+
+<h3 id="配置系统">2. 配置系统<a class="headerlink" href="#配置系统" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<pre><code class="cs">// 全局配置系统
+public static class LiveCharts
+{
+    public static void Configure(Action&lt;LiveChartsSettings&gt; configuration)
+    {
+        configuration(_settings);
+    }
+}
+
+// 使用示例
+LiveCharts.Configure(settings =&gt;
+{
+    settings.AddDefaultMappers()
+            .AddGlobalEasing(EasingFunctions.QuadraticInOut, TimeSpan.FromMilliseconds(800));
+});
+
+</code></pre>
+
+<h2 id="八价值总结">八、价值总结<a class="headerlink" href="#八价值总结" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<h3 id="优秀实践展示">1. 优秀实践展示<a class="headerlink" href="#优秀实践展示" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<ul>
+<li>SOLID原则：每个类都有单一职责</li>
+<li>开闭原则：通过继承和接口实现扩展</li>
+<li>依赖注入：通过构造函数和属性注入依赖</li>
+</ul>
+<h3 id="设计模式应用">2. 设计模式应用<a class="headerlink" href="#设计模式应用" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<ul>
+<li>策略模式：轴标签格式化、工具提示查找</li>
+<li>观察者模式：数据变化通知图表更新</li>
+<li>模板方法模式：系列基类定义算法骨架</li>
+<li>桥接模式：抽象与实现分离（图表逻辑与渲染）</li>
+</ul>
+<h3 id="工程化思维">3. 工程化思维<a class="headerlink" href="#工程化思维" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h3>
+<ul>
+<li>分层架构：核心层、渲染层、UI层分离</li>
+<li>性能考虑：节流、缓存、批处理</li>
+<li>可测试性：接口隔离，便于单元测试</li>
+<li>可维护性：清晰的依赖关系和职责划分</li>
+</ul>
+<h2 id="九给学习者的建议">九、给学习者的建议<a class="headerlink" href="#九给学习者的建议" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+<p>学习路径：
+- 先理解接口：研究 IChartView、ISeries、IAxis 定义
+- 跟踪数据流：从数据绑定到屏幕渲染的完整流程
+- 研究扩展点：如何自定义几何形状、系列类型
+- 性能优化：学习动画系统和绘制优化技巧</p>
+<p>核心收获：
+- 架构设计能力：如何设计可扩展的跨平台库
+- 设计模式应用：理论到实践的转换
+- 性能优化思维：在保证功能的前提下优化性能
+- 工程化思维：代码组织、测试、维护的全面考虑</p>
+<p>这个项目是一个优秀的案例，展示了如何将复杂的图表系统分解为可管理的组件，同时保持良好的扩展性和性能。适合作为学习高级面向对象设计和图形编程的参考项目。</p>
+
+                    </div>
+                </div>
+                <footer>
+                    <hr />
+                    <div role="contentinfo">
+https://github.com/xiangsxuan2
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/modernizr-2.8.3.min.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/theme.js"></script>
+
+</body>
+</html>
