@@ -17,6 +17,10 @@
     </Window.DataContext>
 
     <Grid>
+        <!--
+            CartesianChart 控件是 LiveCharts2 在 WPF 中的主要图表控件
+            它支持多种图表类型和数据绑定
+        -->
         <lvc:CartesianChart
             LegendPosition="Right"
             Series="{Binding Series}"
@@ -24,5 +28,13 @@
             TooltipPosition="Top"
             XAxes="{Binding XAxes}"
             YAxes="{Binding YAxes}" />
+
+        <!--<lvc:CartesianChart
+            LegendPosition="Right"
+            Series="{Binding Series}"            绑定到视图模型的 Series 属性
+            TooltipFindingStrategy="CompareOnlyX" 工具提示只在 X 轴上比较
+            TooltipPosition="Top"                工具提示显示在顶部
+            XAxes="{Binding XAxes}"              绑定到视图模型的 XAxes 属性
+            YAxes="{Binding YAxes}" />           绑定到视图模型的 YAxes 属性-->
     </Grid>
 </Window>
