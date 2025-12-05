@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using System.ComponentModel;
 
@@ -20,7 +16,6 @@ namespace LiveChartsCore
         /// </summary>
         public ChartPoint()
         {
-
         }
 
         /// <summary>
@@ -30,8 +25,8 @@ namespace LiveChartsCore
         /// <param name="y">the y coordinate</param>
         public ChartPoint(double x, double y, int index, TModel dataSource)
         {
-            X = (float) x;
-            Y = (float) y;
+            X = (float)x;
+            Y = (float)y;
             Index = index;
             DataSource = dataSource;
         }
@@ -39,12 +34,14 @@ namespace LiveChartsCore
         /// <summary>
         /// The X coordinate value.
         /// </summary>
-        public float X { get => x; set { x = value; OnPropertyChanged(nameof(X)); } }
+        public float X
+        { get => x; set { x = value; OnPropertyChanged(nameof(X)); } }
 
         /// <summary>
         /// The Y coordinate value.
         /// </summary>
-        public float Y { get => y; set { y = value; OnPropertyChanged(nameof(Y)); } }
+        public float Y
+        { get => y; set { y = value; OnPropertyChanged(nameof(Y)); } }
 
         /// <inheritdoc/>
         public object Visual { get; set; }

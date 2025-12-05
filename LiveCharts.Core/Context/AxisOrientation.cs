@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Context
 {
     public enum AxisOrientation
@@ -11,5 +7,3 @@ namespace LiveChartsCore.Context
         Y
     }
 }
-
-

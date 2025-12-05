@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using LiveChartsCore.SkiaSharp.Drawing;
 using LiveChartsCore.SkiaSharp.Transitions;
@@ -15,10 +11,8 @@ namespace LiveChartsCore.SkiaSharp.Painting
         private readonly ColorTransition colorTransition = new ColorTransition();
         private readonly FloatTransition strokeMiterTransition = new FloatTransition();
 
-
         public SolidColorPaintTask()
         {
-
         }
 
         public SolidColorPaintTask(SKColor color)
@@ -32,7 +26,8 @@ namespace LiveChartsCore.SkiaSharp.Painting
             strokeWidthTransition = new FloatTransition(strokeWidth);
         }
 
-        public SKColor Color { get => colorTransition.GetCurrentMovement(this); set { colorTransition.MoveTo(value, this); } }
+        public SKColor Color
+        { get => colorTransition.GetCurrentMovement(this); set { colorTransition.MoveTo(value, this); } }
         public bool IsAntialias { get; set; } = true;
         public SKPathEffect PathEffect { get; set; }
         public SKStrokeCap StrokeCap { get; set; }

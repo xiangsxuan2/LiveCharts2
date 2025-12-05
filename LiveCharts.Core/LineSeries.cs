@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System;
@@ -15,7 +11,7 @@ namespace LiveChartsCore
     /// Defines the data to plot as a line.
     /// </summary>
     public class LineSeries<TModel, TPath, TVisual, TDrawingContext> : Series<TModel, TVisual, TDrawingContext>
-        where TPath: IPathGeometry<TDrawingContext>, new()
+        where TPath : IPathGeometry<TDrawingContext>, new()
         where TVisual : ISizedGeometry<TDrawingContext>, IHighlightableGeometry<TDrawingContext>, new()
         where TDrawingContext : DrawingContext
     {
@@ -28,7 +24,6 @@ namespace LiveChartsCore
 
         public LineSeries()
         {
-
         }
 
         public IDrawableTask<TDrawingContext> ShapesFill
@@ -80,7 +75,7 @@ namespace LiveChartsCore
             var hgs = gs / 2f;
             float uw = xScale.ScaleToUi(1f) - xScale.ScaleToUi(0f);
             float huw = uw * 0.5f;
-            float sw = Stroke?.StrokeWidth ?? 0; 
+            float sw = Stroke?.StrokeWidth ?? 0;
             //float p = view.Core.DrawMaringLocation.Y + view.Core.DrawMarginSize.Height;
             float p = yScale.ScaleToUi(unchecked((float)Pivot));
 
@@ -125,10 +120,10 @@ namespace LiveChartsCore
 
                 if (Fill != null)
                 {
-                    if (data.IsFirst) 
-                    { 
+                    if (data.IsFirst)
+                    {
                         fillPath.MoveTo(data.X0, p);
-                        fillPath.LineTo(data.X0, data.Y0); 
+                        fillPath.LineTo(data.X0, data.Y0);
                     }
                     fillPath.CubicBezierTo(data.X0, data.Y0, data.X1, data.Y1, data.X2, data.Y2);
                     if (data.IsLast)
@@ -147,7 +142,7 @@ namespace LiveChartsCore
                 visual.Geometry.Width = gs;
                 visual.Geometry.Height = gs;
 
-                data.TargetCoordinate.HoverArea.SetDimensions(x - huw, y - hgs - sw, uw, gs + 2*sw);
+                data.TargetCoordinate.HoverArea.SetDimensions(x - huw, y - hgs - sw, uw, gs + 2 * sw);
                 OnPointMeasured(data.TargetCoordinate, visual.Geometry);
                 drawBucket.Add(visual.Geometry);
             }
@@ -238,7 +233,7 @@ namespace LiveChartsCore
                     yield return new BezierData
                     {
                         IsFirst = i == 0,
-                        IsLast = i == points.Length -1,
+                        IsLast = i == points.Length - 1,
                         TargetCoordinate = points[i],
                         X0 = xScale.ScaleToUi(x0),
                         Y0 = yScale.ScaleToUi(y0),
@@ -264,7 +259,8 @@ namespace LiveChartsCore
                 visual.CompleteTransitions();
                 fillClone.AddGeometyToPaintTask(visual);
                 context.PaintTasks.Add(fillClone);
-            } else if (Fill != null)
+            }
+            else if (Fill != null)
             {
                 var fillClone = Fill.CloneTask();
                 var visual = new TVisual { X = 0, Y = 0, Height = lss, Width = lss };
@@ -287,7 +283,8 @@ namespace LiveChartsCore
                 w += 2 * shapesStroke.StrokeWidth;
                 strokeClone.AddGeometyToPaintTask(visual);
                 context.PaintTasks.Add(strokeClone);
-            } else if (Stroke != null)
+            }
+            else if (Stroke != null)
             {
                 var strokeClone = Stroke.CloneTask();
                 var visual = new TVisual

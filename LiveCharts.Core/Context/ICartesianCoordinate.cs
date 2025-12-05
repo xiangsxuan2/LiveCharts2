@@ -1,12 +1,8 @@
-
-
-
-
 using System.ComponentModel;
 
 namespace LiveChartsCore.Context
 {
-    public interface ICartesianCoordinate: INotifyPropertyChanged
+    public interface ICartesianCoordinate : INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the X coordinate.

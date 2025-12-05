@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using LiveChartsCore.Transitions;
 using SkiaSharp;
@@ -16,7 +12,6 @@ namespace LiveChartsCore.SkiaSharp.Drawing
 
         public SizedGeometry() : base()
         {
-
         }
 
         public SizedGeometry(float x, float y, float width, float height)

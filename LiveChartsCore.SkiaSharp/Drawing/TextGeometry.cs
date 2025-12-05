@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using SkiaSharp;
 

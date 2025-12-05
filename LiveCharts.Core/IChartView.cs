@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System;
@@ -10,7 +6,7 @@ using System.Collections.Generic;
 namespace LiveChartsCore
 {
     public interface IChartView<TDrawingContext>
-        where TDrawingContext: DrawingContext
+        where TDrawingContext : DrawingContext
     {
         ChartCore<TDrawingContext> Core { get; }
         Canvas<TDrawingContext> CoreCanvas { get; }

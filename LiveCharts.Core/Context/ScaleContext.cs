@@ -1,7 +1,3 @@
-
-
-
-
 using System;
 using System.Drawing;
 
@@ -43,6 +39,7 @@ namespace LiveChartsCore.Context
         public Func<float, float> ScaleToUi => scaler;
 
         private float ScaleXToUI(float value) => o + (m * (max - value) + d);
+
         private float ScaleYToUI(float value) => o + (d - (m * (max - value) + d));
     }
 }

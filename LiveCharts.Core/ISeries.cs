@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System.Collections.Generic;
@@ -16,8 +12,8 @@ namespace LiveChartsCore
         int ScalesYAt { get; set; }
     }
 
-    public interface ISeries<TDrawingContext>: ISeries
-        where TDrawingContext: DrawingContext
+    public interface ISeries<TDrawingContext> : ISeries
+        where TDrawingContext : DrawingContext
     {
         IDrawableTask<TDrawingContext> Stroke { get; }
         IDrawableTask<TDrawingContext> Fill { get; }
@@ -25,6 +21,7 @@ namespace LiveChartsCore
         IDrawableTask<TDrawingContext> HighlightFill { get; }
 
         PaintContext<TDrawingContext> DefaultPaintContext { get; }
+
         IEnumerable<ICartesianCoordinate> Fetch(ChartCore<TDrawingContext> chart);
 
         /// <summary>

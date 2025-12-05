@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using LiveChartsCore.Drawing.Common;
 using LiveChartsCore.SkiaSharp.Transitions;
@@ -10,7 +6,6 @@ using SkiaSharp;
 
 namespace LiveChartsCore.SkiaSharp.Drawing
 {
-
     public abstract class Geometry : NaturalElement, IGeometry<SkiaDrawingContext>, IHighlightableGeometry<SkiaDrawingContext>
     {
         private bool hasRotation = false;
@@ -23,7 +18,6 @@ namespace LiveChartsCore.SkiaSharp.Drawing
 
         public Geometry()
         {
-
         }
 
         public Geometry(float x, float y)

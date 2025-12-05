@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public abstract class DrawingContext

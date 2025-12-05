@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using LiveChartsCore.Rx;
@@ -13,7 +9,7 @@ using System.Linq;
 namespace LiveChartsCore
 {
     public class ChartCore<TDrawingContext>
-        where TDrawingContext: DrawingContext
+        where TDrawingContext : DrawingContext
     {
         private readonly IChartView<TDrawingContext> chartView;
         private readonly Canvas<TDrawingContext> naturalGeometriesCanvas;
@@ -55,7 +51,7 @@ namespace LiveChartsCore
         {
             var drawBucket = new HashSet<IGeometry<TDrawingContext>>();
 
-            if(chartView.Legend != null) chartView.Legend.Draw(chartView);
+            if (chartView.Legend != null) chartView.Legend.Draw(chartView);
             var controlSize = chartView.ControlSize;
 
             // restart axes bounds and meta data
@@ -83,7 +79,7 @@ namespace LiveChartsCore
 
                 foreach (var axis in chartView.XAxes)
                 {
-                    var s = axis.GetPossibleSize(chartView );
+                    var s = axis.GetPossibleSize(chartView);
                     if (axis.Position == AxisPosition.LeftOrBottom)
                     {
                         // X Bottom
@@ -149,7 +145,7 @@ namespace LiveChartsCore
                 series.Measure(chartView, x, y, drawBucket);
             }
 
-            chartView.CoreCanvas.ForEachGeometry((geometry, paint) => 
+            chartView.CoreCanvas.ForEachGeometry((geometry, paint) =>
             {
                 if (drawBucket.Contains(geometry)) return; // then the geometry was updated by the measure method
 

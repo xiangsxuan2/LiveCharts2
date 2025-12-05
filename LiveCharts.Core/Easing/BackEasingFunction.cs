@@ -1,4 +1,4 @@
-﻿// this function is inspired on
+// this function is inspired on
 // https://github.com/d3/d3-ease/blob/master/src/back.js
 
 namespace LiveChartsCore.Easing

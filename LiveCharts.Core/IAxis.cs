@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System;
@@ -19,10 +15,10 @@ namespace LiveChartsCore
         float Yo { get; set; }
 
         Func<double, AxisTick, string> Labeler { get; set; }
-        double Step { get ; set; }
+        double Step { get; set; }
         double UnitWith { get; set; }
 
-        AxisPosition Position { get ; set; }
+        AxisPosition Position { get; set; }
         double LabelsRotation { get; set; }
 
         IWritableTask<TDrawingContext> TextBrush { get; set; }
@@ -35,7 +31,9 @@ namespace LiveChartsCore
         IDrawableTask<TDrawingContext> AlternativeSeparatorForeground { get; set; }
 
         void Initialize(AxisOrientation orientation);
+
         void Measure(IChartView<TDrawingContext> view, HashSet<IGeometry<TDrawingContext>> drawBucket);
+
         SizeF GetPossibleSize(IChartView<TDrawingContext> view);
     }
 }

@@ -1,4 +1,4 @@
-﻿using LiveChartsCore.Easing;
+using LiveChartsCore.Easing;
 using System;
 
 namespace LiveChartsCore
@@ -50,22 +50,28 @@ namespace LiveChartsCore
 
         public static Func<float, Func<float, float>> BuildCustomBackIn =>
             overshoot => t => BackEasingFunction.In(t, overshoot);
+
         public static Func<float, Func<float, float>> BuildCustomBackOut =>
             overshoot => t => BackEasingFunction.Out(t, overshoot);
+
         public static Func<float, Func<float, float>> BuildCustomBackInOut =>
             overshoot => t => BackEasingFunction.InOut(t, overshoot);
 
         public static Func<float, float, Func<float, float>> BuildCustomElasticIn =>
             (amplitude, period) => t => ElasticEasingFunction.In(t, amplitude, period);
+
         public static Func<float, float, Func<float, float>> BuildCustomElasticOut =>
             (amplitude, period) => t => ElasticEasingFunction.Out(t, amplitude, period);
+
         public static Func<float, float, Func<float, float>> BuildCustomElasticInOut =>
             (amplitude, period) => t => ElasticEasingFunction.InOut(t, amplitude, period);
 
         public static Func<float, Func<float, float>> BuildCustomPolinominalIn =>
             exponent => t => PolinominalEasingFunction.In(t, exponent);
+
         public static Func<float, Func<float, float>> BuildCustomPolinominalOut =>
             exponent => t => PolinominalEasingFunction.Out(t, exponent);
+
         public static Func<float, Func<float, float>> BuildCustomPolinominalInOut =>
             exponent => t => PolinominalEasingFunction.InOut(t, exponent);
 

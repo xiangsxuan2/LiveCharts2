@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using SkiaSharp;
 
@@ -15,6 +11,7 @@ namespace LiveChartsCore.SkiaSharp.Drawing
             Surface = surface;
             Canvas = canvas;
         }
+
         public SKImageInfo Info { get; set; }
         public SKSurface Surface { get; set; }
         public SKCanvas Canvas { get; set; }

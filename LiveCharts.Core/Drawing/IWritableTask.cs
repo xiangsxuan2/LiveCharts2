@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public interface IWritableTask<TDrawingContext> : IDrawableTask<TDrawingContext>

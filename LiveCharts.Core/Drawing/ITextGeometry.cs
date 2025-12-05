@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public interface ITextGeometry<TDrawingContext> : IGeometry<TDrawingContext>

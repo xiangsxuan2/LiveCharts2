@@ -1,4 +1,4 @@
-﻿using LiveChartsCore;
+using LiveChartsCore;
 using LiveChartsCore.SkiaSharp;
 using LiveChartsCore.SkiaSharp.Drawing;
 using LiveChartsCore.SkiaSharp.Painting;
@@ -89,6 +89,5 @@ namespace ViewModelsSamples
 
     public class HelloColumnSeries : ColumnSeries<double, HelloGeometry>
     {
-
     }
 }

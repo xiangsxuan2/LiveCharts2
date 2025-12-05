@@ -1,7 +1,3 @@
-
-
-
-
 using System;
 
 namespace LiveChartsCore.Rx
@@ -11,7 +7,6 @@ namespace LiveChartsCore.Rx
         public ActionThrottler(TimeSpan lockTime)
             : base(lockTime)
         {
-
         }
 
         public event Action Unlocked;

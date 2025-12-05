@@ -1,7 +1,3 @@
-
-
-
-
 using System;
 
 namespace LiveChartsCore.Drawing
@@ -10,7 +6,6 @@ namespace LiveChartsCore.Drawing
     {
         public Animation()
         {
-
         }
 
         public Animation(Func<float, float> easingFunction, TimeSpan duration)

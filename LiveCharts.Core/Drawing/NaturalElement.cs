@@ -1,7 +1,3 @@
-
-
-
-
 using System;
 
 namespace LiveChartsCore.Drawing.Common
@@ -75,5 +71,4 @@ namespace LiveChartsCore.Drawing.Common
             isCompleted = false;
         }
     }
-
 }

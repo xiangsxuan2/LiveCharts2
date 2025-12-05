@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public class AxisVisualSeprator<TDrawingContext>

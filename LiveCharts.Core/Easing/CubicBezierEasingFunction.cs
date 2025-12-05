@@ -1,4 +1,4 @@
-﻿// this function is inspired on
+// this function is inspired on
 // https://github.com/gre/bezier-easing/blob/master/src/index.js
 
 using System;
@@ -76,13 +76,20 @@ namespace LiveChartsCore.Easing
             };
         }
 
-        private static float A(float aA1, float aA2) { return 1.0f - 3.0f * aA2 + 3.0f * aA1; }
-        private static float B(float aA1, float aA2) { return 3.0f * aA2 - 6.0f * aA1; }
-        private static float C(float aA1) { return 3.0f * aA1; }
+        private static float A(float aA1, float aA2)
+        { return 1.0f - 3.0f * aA2 + 3.0f * aA1; }
 
-        private static float CalcBezier(float aT, float aA1, float aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
+        private static float B(float aA1, float aA2)
+        { return 3.0f * aA2 - 6.0f * aA1; }
 
-        private static float GetSlope(float aT, float aA1, float aA2) { return 3.0f * A(aA1, aA2) * aT * aT + 2.0f * B(aA1, aA2) * aT + C(aA1); }
+        private static float C(float aA1)
+        { return 3.0f * aA1; }
+
+        private static float CalcBezier(float aT, float aA1, float aA2)
+        { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
+
+        private static float GetSlope(float aT, float aA1, float aA2)
+        { return 3.0f * A(aA1, aA2) * aT * aT + 2.0f * B(aA1, aA2) * aT + C(aA1); }
 
         private static float BinarySubdivide(float aX, float aA, float aB, float mX1, float mX2)
         {

@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System;
@@ -17,7 +13,7 @@ namespace LiveChartsCore
     /// Defines data to plot in a chart.
     /// </summary>
     public abstract class Series<TModel, TVisual, TDrawingContext> : IDisposable, ISeries<TDrawingContext>
-        where TDrawingContext: DrawingContext
+        where TDrawingContext : DrawingContext
         where TVisual : ISizedGeometry<TDrawingContext>, IHighlightableGeometry<TDrawingContext>, new()
     {
         private readonly HashSet<ChartCore<TDrawingContext>> subscribedTo = new HashSet<ChartCore<TDrawingContext>>();
@@ -143,8 +139,9 @@ namespace LiveChartsCore
         public string Name { get; set; }
 
         public double LegendShapeSize { get => legendShapeSize; set => legendShapeSize = value; }
+
         /// <summary>
-        /// Gets or sets the mapping that defines how a type is mapped to a <see cref="ChartPoint"/> instance, 
+        /// Gets or sets the mapping that defines how a type is mapped to a <see cref="ChartPoint"/> instance,
         /// then the <see cref="ChartPoint"/> will be drawn as a point in our chart.
         /// </summary>
         public Func<TModel, int, ICartesianCoordinate> Mapping { get; set; }
@@ -176,7 +173,8 @@ namespace LiveChartsCore
                 {
                     if (!isXLimit) bounds.XCoordinatesBounds = new HashSet<ICartesianCoordinate>();
                     bounds.XCoordinatesBounds.Add(coordinate);
-                };
+                }
+                ;
 
                 if (aby > 0)
                 {
@@ -196,7 +194,7 @@ namespace LiveChartsCore
             HashSet<IGeometry<TDrawingContext>> drawBucket);
 
         /// <summary>
-        /// Gets the 
+        /// Gets the
         /// </summary>
         /// <returns></returns>
         public IEnumerable<ICartesianCoordinate> GetPonts() => implementsICC ? GetPointsFromICC() : GetMappedPoints();
@@ -287,6 +285,7 @@ namespace LiveChartsCore
                                 _currentBounds.YAxisBounds.AppendValue(coordinate.Y);
                             }
                             break;
+
                         case NotifyCollectionChangedAction.Remove:
                             foreach (var item in e.OldItems)
                             {
@@ -299,6 +298,7 @@ namespace LiveChartsCore
                                 }
                             }
                             break;
+
                         case NotifyCollectionChangedAction.Replace:
                             foreach (var item in e.NewItems)
                             {
@@ -317,9 +317,11 @@ namespace LiveChartsCore
                                 }
                             }
                             break;
+
                         case NotifyCollectionChangedAction.Move:
                             /// ignored.
                             break;
+
                         case NotifyCollectionChangedAction.Reset:
                             _currentBounds = null;
                             break;
@@ -351,15 +353,15 @@ namespace LiveChartsCore
             if (Stroke != null)
             {
                 var strokeClone = Stroke.CloneTask();
-                var visual = new TVisual 
-                { 
+                var visual = new TVisual
+                {
                     X = strokeClone.StrokeWidth,
                     Y = strokeClone.StrokeWidth,
                     Height = (float)legendShapeSize,
-                    Width = (float)legendShapeSize 
+                    Width = (float)legendShapeSize
                 };
                 visual.CompleteTransitions();
-                w += 2*strokeClone.StrokeWidth;
+                w += 2 * strokeClone.StrokeWidth;
                 strokeClone.AddGeometyToPaintTask(visual);
                 context.PaintTasks.Add(strokeClone);
             }

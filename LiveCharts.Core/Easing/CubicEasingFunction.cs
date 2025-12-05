@@ -1,4 +1,4 @@
-﻿// This function is inpired on
+// This function is inpired on
 // https://github.com/d3/d3-ease/blob/master/src/cubic.js
 
 namespace LiveChartsCore.Easing

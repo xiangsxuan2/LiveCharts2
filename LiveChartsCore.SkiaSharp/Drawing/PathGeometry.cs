@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using SkiaSharp;
 using System;
@@ -15,7 +11,6 @@ namespace LiveChartsCore.SkiaSharp.Drawing
 
         public PathGeometry()
         {
-
         }
 
         public bool IsClosed { get; set; }
@@ -56,7 +51,7 @@ namespace LiveChartsCore.SkiaSharp.Drawing
                 segment.Excecute(path);
             }
 
-             if (IsClosed) path.Close();
+            if (IsClosed) path.Close();
             context.Canvas.DrawPath(path, paint);
         }
 

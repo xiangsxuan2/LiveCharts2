@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using System;
 using System.Collections.Generic;
@@ -25,7 +21,7 @@ namespace LiveChartsCore
         }
 
         /// <summary>
-        /// Adds or replaces a mapping for a given type, the mapper defines how a type is mapped to a <see cref="ChartPoint"/> instance, 
+        /// Adds or replaces a mapping for a given type, the mapper defines how a type is mapped to a <see cref="ChartPoint"/> instance,
         /// then the <see cref="ChartPoint"/> will be drawn as a point in our chart.
         /// </summary>
         /// <typeparam name="T">The type</typeparam>
@@ -49,7 +45,7 @@ namespace LiveChartsCore
                     $"A mapper for type {typeof(TModel)} is not implemented yet, consider using {nameof(LiveCharts)}.{nameof(LiveCharts.Configure)}() " +
                     $"method to call {nameof(SetMapping)}() with the type you are trying to plot.");
 
-            return (Func<TModel, int, ICartesianCoordinate>) mapper;
+            return (Func<TModel, int, ICartesianCoordinate>)mapper;
         }
 
         /// <summary>
@@ -63,7 +59,7 @@ namespace LiveChartsCore
             SetMapping<long>((value, index) => new ChartPoint<long>(index, value, index, value));
             SetMapping<float>((value, index) => new ChartPoint<float>(index, value, index, value));
             SetMapping<double>((value, index) => new ChartPoint<double>(index, value, index, value));
-            SetMapping<decimal>((value, index) => new ChartPoint<decimal>(index, (double) value, index, value));
+            SetMapping<decimal>((value, index) => new ChartPoint<decimal>(index, (double)value, index, value));
 
             return this;
         }

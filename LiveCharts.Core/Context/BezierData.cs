@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Context
 {
     public class BezierData
@@ -17,4 +13,3 @@ namespace LiveChartsCore.Context
         public bool IsLast { get; set; }
     }
 }
-

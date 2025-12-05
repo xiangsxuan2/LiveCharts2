@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Transitions;
 using SkiaSharp;
 
@@ -14,7 +10,6 @@ namespace LiveChartsCore.SkiaSharp.Drawing
 
         public RoundedRectangleGeometry()
         {
-
         }
 
         public RoundedRectangleGeometry(float x, float y, float width, float height, float rx, float ry)

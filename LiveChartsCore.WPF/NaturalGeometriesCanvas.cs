@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using LiveChartsCore.SkiaSharp.Drawing;
 using SkiaSharp.Views.Desktop;

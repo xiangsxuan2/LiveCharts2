@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System;
@@ -11,10 +7,10 @@ using System.Linq;
 
 namespace LiveChartsCore
 {
-    public class Axis<TDrawingContext, TTextGeometry, TLineGeometry>: IAxis<TDrawingContext>
-        where TDrawingContext: DrawingContext
-        where TTextGeometry: ITextGeometry<TDrawingContext>, new()
-        where TLineGeometry: ILineGeometry<TDrawingContext>, new()
+    public class Axis<TDrawingContext, TTextGeometry, TLineGeometry> : IAxis<TDrawingContext>
+        where TDrawingContext : DrawingContext
+        where TTextGeometry : ITextGeometry<TDrawingContext>, new()
+        where TLineGeometry : ILineGeometry<TDrawingContext>, new()
     {
         private const float wedgeLength = 8;
         internal AxisOrientation orientation;
@@ -22,10 +18,13 @@ namespace LiveChartsCore
         private Bounds dataBounds;
         private Bounds previousDataBounds;
         private double labelsRotation;
-        private readonly Dictionary<string, AxisVisualSeprator<TDrawingContext>> activeSeparators = 
+
+        private readonly Dictionary<string, AxisVisualSeprator<TDrawingContext>> activeSeparators =
             new Dictionary<string, AxisVisualSeprator<TDrawingContext>>();
+
         // xo (x origin) and yo (y origin) are the distance to the center of the axis to the control bounds
         internal float xo = 0f, yo = 0f;
+
         private AxisPosition position = AxisPosition.LeftOrBottom;
         private Func<double, AxisTick, string> labeler;
 
@@ -48,7 +47,7 @@ namespace LiveChartsCore
         public double Step { get => step; set => step = value; }
 
         public double UnitWith { get; set; } = 1;
-        
+
         public AxisPosition Position { get => position; set => position = value; }
         public double LabelsRotation { get => labelsRotation; set => labelsRotation = value; }
 
@@ -142,7 +141,8 @@ namespace LiveChartsCore
                             lineGeometry.X1 = x;
                             lineGeometry.Y = lyi;
                             lineGeometry.Y1 = lyj;
-                        } else
+                        }
+                        else
                         {
                             lineGeometry.X = lxi;
                             lineGeometry.X1 = lxj;

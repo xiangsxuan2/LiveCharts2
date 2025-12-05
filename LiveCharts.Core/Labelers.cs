@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using System;
 

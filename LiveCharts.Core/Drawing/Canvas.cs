@@ -1,7 +1,3 @@
-
-
-
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,6 +18,7 @@ namespace LiveChartsCore.Drawing
         }
 
         public event Action<Canvas<TDrawingContext>> Invalidated;
+
         public bool IsValid { get => isValid; }
 
         public void DrawFrame(TDrawingContext context)

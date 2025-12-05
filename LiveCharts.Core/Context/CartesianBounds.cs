@@ -1,7 +1,3 @@
-
-
-
-
 using System.Collections.Generic;
 
 namespace LiveChartsCore.Context
@@ -37,12 +33,14 @@ namespace LiveChartsCore.Context
         /// <summary>
         /// Gets or sets the X axis bounds.
         /// </summary>
-        public Bounds XAxisBounds { get => xAxisBounds; set {  xAxisBounds = value; } }
+        public Bounds XAxisBounds
+        { get => xAxisBounds; set { xAxisBounds = value; } }
 
         /// <summary>
         /// Gets or sets the Y axis bounds.
         /// </summary>
-        public Bounds YAxisBounds { get => yAxisBounds; set { yAxisBounds = value; } }
+        public Bounds YAxisBounds
+        { get => yAxisBounds; set { yAxisBounds = value; } }
 
         internal HashSet<ICartesianCoordinate> XCoordinatesBounds { get; set; } = new HashSet<ICartesianCoordinate>();
 

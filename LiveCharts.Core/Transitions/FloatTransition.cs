@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Transitions
 {
     public class FloatTransition : Transition<float>

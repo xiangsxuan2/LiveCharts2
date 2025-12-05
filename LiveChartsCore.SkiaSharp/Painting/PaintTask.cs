@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using LiveChartsCore.Drawing.Common;
 using LiveChartsCore.SkiaSharp.Drawing;
@@ -13,7 +9,7 @@ using System.Collections.Generic;
 namespace LiveChartsCore.SkiaSharp.Painting
 {
     /// <summary>
-    /// Defines a brush that support animations, this class is based on <see cref="SKPaint"/> 
+    /// Defines a brush that support animations, this class is based on <see cref="SKPaint"/>
     /// class (https://docs.microsoft.com/en-us/dotnet/api/skiasharp.skpaint?view=skiasharp-1.68.2). Also see https://api.skia.org/classSkPaint.html
     /// </summary>
     public abstract class PaintTask : NaturalElement, IDisposable, IDrawableTask<SkiaDrawingContext>

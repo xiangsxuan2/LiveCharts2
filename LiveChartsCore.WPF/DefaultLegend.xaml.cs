@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.SkiaSharp.Drawing;
 using System.Collections.Generic;
@@ -74,26 +70,31 @@ namespace LiveChartsCore.WPF
                 case LegendPosition.None:
                     Visibility = Visibility.Collapsed;
                     break;
+
                 case LegendPosition.Top:
                     Visibility = Visibility.Visible;
-                   if (legendOrientation == LegendOrientation.Auto) Orientation = Orientation.Horizontal;
+                    if (legendOrientation == LegendOrientation.Auto) Orientation = Orientation.Horizontal;
                     Dock = Dock.Top;
                     break;
+
                 case LegendPosition.Left:
                     Visibility = Visibility.Visible;
                     if (legendOrientation == LegendOrientation.Auto) Orientation = Orientation.Vertical;
                     Dock = Dock.Left;
                     break;
+
                 case LegendPosition.Right:
                     Visibility = Visibility.Visible;
                     if (legendOrientation == LegendOrientation.Auto) Orientation = Orientation.Vertical;
                     Dock = Dock.Right;
                     break;
+
                 case LegendPosition.Bottom:
                     Visibility = Visibility.Visible;
                     if (legendOrientation == LegendOrientation.Auto) Orientation = Orientation.Horizontal;
                     Dock = Dock.Bottom;
                     break;
+
                 default:
                     break;
             }

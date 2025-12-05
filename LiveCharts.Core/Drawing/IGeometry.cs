@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public interface IGeometry<TDrawingContext> : IAnimatable
@@ -10,6 +6,7 @@ namespace LiveChartsCore.Drawing
         /// Gets or set the rotation angle in degrees.
         /// </summary>
         float Rotation { get; set; }
+
         float X { get; set; }
         float Y { get; set; }
 

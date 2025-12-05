@@ -1,7 +1,3 @@
-
-
-
-
 using SkiaSharp;
 
 namespace LiveChartsCore.SkiaSharp.Drawing
@@ -13,7 +9,6 @@ namespace LiveChartsCore.SkiaSharp.Drawing
 
         public SVGPathGeometry() : base()
         {
-
         }
 
         public SVGPathGeometry(SKPath svgPath)
@@ -27,7 +22,8 @@ namespace LiveChartsCore.SkiaSharp.Drawing
             this.svg = svg;
         }
 
-        public string SVG { get => svg; set { svg = value; OnSVGPropertyChanged(); } }
+        public string SVG
+        { get => svg; set { svg = value; OnSVGPropertyChanged(); } }
 
         public override void OnDraw(SkiaDrawingContext context, SKPaint paint)
         {

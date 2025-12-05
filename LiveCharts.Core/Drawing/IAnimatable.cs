@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public interface IAnimatable
@@ -13,6 +9,7 @@ namespace LiveChartsCore.Drawing
         void SetStoryboard(long frameTime, Animation animation);
 
         void SetTime(long frameTime);
+
         void CompleteTransitions();
     }
 }

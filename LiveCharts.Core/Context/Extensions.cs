@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Drawing;
 using System;
 using System.Collections.Generic;
@@ -40,8 +36,8 @@ namespace LiveChartsCore.Context
 
             if (count == 0) return null;
 
-            var avrgX = ((mostRight + mostLeft)/2f) - tooltipSize.Width * 0.5f;
-            var avrgY = ((mostTop + mostBottom)/2f) - tooltipSize.Height * 0.5f;
+            var avrgX = ((mostRight + mostLeft) / 2f) - tooltipSize.Width * 0.5f;
+            var avrgY = ((mostTop + mostBottom) / 2f) - tooltipSize.Height * 0.5f;
 
             switch (position)
             {

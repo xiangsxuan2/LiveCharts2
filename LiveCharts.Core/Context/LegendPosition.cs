@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Context
 {
     public enum LegendPosition

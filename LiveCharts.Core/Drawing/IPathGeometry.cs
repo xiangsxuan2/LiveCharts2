@@ -1,7 +1,3 @@
-
-
-
-
 namespace LiveChartsCore.Drawing
 {
     public interface IPathGeometry<TDrawingContext> : IGeometry<TDrawingContext>

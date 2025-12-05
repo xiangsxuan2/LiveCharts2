@@ -1,4 +1,4 @@
-﻿using LiveChartsCore.Context;
+using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using LiveChartsCore.SkiaSharp.Drawing;
 using System;
@@ -71,7 +71,7 @@ namespace LiveChartsCore.WPF
           DependencyProperty.Register(
               nameof(TextColor), typeof(SolidColorBrush), typeof(DefaultTooltip), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(250, 250, 250))));
 
-        #endregion
+        #endregion dependency properties
 
         #region properties
 
@@ -121,7 +121,7 @@ namespace LiveChartsCore.WPF
             set { SetValue(TextColorProperty, value); }
         }
 
-        #endregion
+        #endregion properties
 
         void IChartTooltip<SkiaDrawingContext>.Show(IEnumerable<FoundPoint<SkiaDrawingContext>> foundPoints, IChartView<SkiaDrawingContext> view)
         {
@@ -166,7 +166,7 @@ namespace LiveChartsCore.WPF
                     highlightTasks.Add(highlightPaintTask, highlighPaint);
                 }
 
-                highlighPaint.Add(((IHighlightableGeometry<SkiaDrawingContext>) point.Coordinate.Visual).HighlightableGeometry);
+                highlighPaint.Add(((IHighlightableGeometry<SkiaDrawingContext>)point.Coordinate.Visual).HighlightableGeometry);
             }
 
             foreach (var point in foundPoints)

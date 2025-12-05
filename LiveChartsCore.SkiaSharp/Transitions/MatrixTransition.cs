@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Transitions;
 using SkiaSharp;
 

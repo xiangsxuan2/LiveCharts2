@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using System;
@@ -15,11 +11,10 @@ namespace LiveChartsCore
     /// </summary>
     public class ColumnSeries<TModel, TVisual, TDrawingContext> : Series<TModel, TVisual, TDrawingContext>
         where TVisual : ISizedGeometry<TDrawingContext>, IHighlightableGeometry<TDrawingContext>, new()
-        where TDrawingContext: DrawingContext
+        where TDrawingContext : DrawingContext
     {
         public ColumnSeries()
         {
-
         }
 
         public double Pivot { get; set; }
@@ -74,7 +69,8 @@ namespace LiveChartsCore
                     rectangle.Width = uw;
                     rectangle.Height = b;
                     point.HoverArea.SetDimensions(x - uwm, y - sw, uw, b + 2 * sw);
-                } else
+                }
+                else
                 {
                     rectangle.X = x - uwm;
                     rectangle.Y = y - b;

@@ -1,9 +1,3 @@
-
-
-
-
-using System;
-
 namespace LiveChartsCore.Context
 {
     /// <summary>
@@ -19,7 +13,6 @@ namespace LiveChartsCore.Context
         /// </summary>
         public Bounds()
         {
-
         }
 
         /// <summary>

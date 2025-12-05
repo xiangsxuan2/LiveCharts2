@@ -1,7 +1,3 @@
-
-
-
-
 using System.Drawing;
 
 namespace LiveChartsCore.Context
@@ -15,7 +11,6 @@ namespace LiveChartsCore.Context
 
         public HoverArea()
         {
-
         }
 
         public HoverArea(float x, float y, float width, float height)
@@ -31,7 +26,7 @@ namespace LiveChartsCore.Context
         public float Width { get => width; set => width = value; }
         public float Height { get => height; set => height = value; }
 
-        public void SetDimensions(float x, float y, float width, float height) 
+        public void SetDimensions(float x, float y, float width, float height)
         {
             X = x;
             Y = y;

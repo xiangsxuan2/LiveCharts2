@@ -1,7 +1,3 @@
-
-
-
-
 using LiveChartsCore.Context;
 using LiveChartsCore.Drawing;
 using LiveChartsCore.Rx;
@@ -43,19 +39,19 @@ namespace LiveChartsCore.WPF
         public Canvas<SkiaDrawingContext> CoreCanvas => canvas.CanvasCore;
 
         SizeF IChartView<SkiaDrawingContext>.ControlSize
-        { 
+        {
             get
             {
                 unchecked
                 {
-                    return new SizeF { Width = (float) canvas.ActualWidth, Height = (float) canvas.ActualHeight };
+                    return new SizeF { Width = (float)canvas.ActualWidth, Height = (float)canvas.ActualHeight };
                 }
             }
         }
 
         public static readonly DependencyProperty SeriesProperty =
             DependencyProperty.Register(
-                nameof(Series), typeof(IEnumerable<ISeries<SkiaDrawingContext>>), 
+                nameof(Series), typeof(IEnumerable<ISeries<SkiaDrawingContext>>),
                 typeof(CartesianChart), new PropertyMetadata(new List<ISeries<SkiaDrawingContext>>()));
 
         public static readonly DependencyProperty XAxesProperty =
