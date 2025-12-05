@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4049366F-0264-4E0B-A0E3-61F1FACAC2F1}"
 	ProjectSection(SolutionItems) = preProject
 		docs\ProjectCodeSummary_Bref.md = docs\ProjectCodeSummary_Bref.md
+		docs\ProjectCodeSummary_withNotes.md = docs\ProjectCodeSummary_withNotes.md
 		docs\think1.md = docs\think1.md
 	EndProjectSection
 EndProject
