@@ -5,10 +5,24 @@ using System;
 
 namespace LiveChartsCore.Easing
 {
+    /// <summary>
+    /// Elastic缓动函数，创建弹性效果
+    /// 类似于弹簧的振动效果
+    /// </summary>
     public static class ElasticEasingFunction
     {
+        /// <summary>
+        /// 2π常量，用于正弦计算
+        /// </summary>
         private static readonly float tau = (float)(2 * Math.PI);
 
+        /// <summary>
+        /// Elastic缓入函数：动画开始时是弹性振动效果
+        /// </summary>
+        /// <param name="t">归一化的时间（0到1）</param>
+        /// <param name="a">振幅，控制振动的大小，默认1</param>
+        /// <param name="p">周期，控制振动的快慢，默认0.3</param>
+        /// <returns>动画进度（0到1）</returns>
         public static float In(float t, float a = 1f, float p = 0.3f)
         {
             var s = Math.Asin(1 / (a = Math.Max(1, a))) * (p /= tau);
@@ -18,6 +32,13 @@ namespace LiveChartsCore.Easing
             }
         }
 
+        /// <summary>
+        /// Elastic缓出函数：动画结束时是弹性振动效果
+        /// </summary>
+        /// <param name="t">归一化的时间（0到1）</param>
+        /// <param name="a">振幅，控制振动的大小，默认1</param>
+        /// <param name="p">周期，控制振动的快慢，默认0.3</param>
+        /// <returns>动画进度（0到1）</returns>
         public static float Out(float t, float a = 1f, float p = 0.3f)
         {
             var s = Math.Asin(1 / (a = Math.Max(1, a))) * (p /= tau);
@@ -27,6 +48,13 @@ namespace LiveChartsCore.Easing
             }
         }
 
+        /// <summary>
+        /// Elastic缓入缓出函数：开始和结束都是弹性振动效果
+        /// </summary>
+        /// <param name="t">归一化的时间（0到1）</param>
+        /// <param name="a">振幅，控制振动的大小，默认1</param>
+        /// <param name="p">周期，控制振动的快慢，默认0.3</param>
+        /// <returns>动画进度（0到1）</returns>
         public static float InOut(float t, float a = 1f, float p = 0.3f)
         {
             var s = Math.Asin(1 / (a = Math.Max(1, a))) * (p /= tau);
@@ -38,6 +66,9 @@ namespace LiveChartsCore.Easing
             }
         }
 
+        /// <summary>
+        /// 辅助函数：计算指数衰减
+        /// </summary>
         private static float Tpmt(float x)
         {
             unchecked
