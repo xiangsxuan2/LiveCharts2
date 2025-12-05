@@ -10,11 +10,12 @@
                 <ControlTemplate TargetType="{x:Type local:CartesianChart}">
                     <DockPanel LastChildFill="true">
                         <local:DefaultTooltip x:Name="tooltip" />
-                        <local:DefaultLegend x:Name="legend"
-                                             DockPanel.Dock="{Binding ElementName=legend, Path=Dock}"
-                                             Orientation="{Binding ElementName=legend, Path=Orientation}"
-                                             Visibility="{Binding ElementName=legend, Path=Visibility}" />
-                        <local:NaturalGeometriesCanvas x:Name="canvas"/>
+                        <local:DefaultLegend
+                            x:Name="legend"
+                            DockPanel.Dock="{Binding ElementName=legend, Path=Dock}"
+                            Orientation="{Binding ElementName=legend, Path=Orientation}"
+                            Visibility="{Binding ElementName=legend, Path=Visibility}" />
+                        <local:NaturalGeometriesCanvas x:Name="canvas" />
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
