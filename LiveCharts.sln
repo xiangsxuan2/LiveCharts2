@@ -15,6 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModelsSamples", "ViewMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChartsCore.SkiaSharp", "LiveChartsCore.SkiaSharp\LiveChartsCore.SkiaSharp.csproj", "{A6751ACF-717B-4B36-8004-79F27553F4C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4049366F-0264-4E0B-A0E3-61F1FACAC2F1}"
+	ProjectSection(SolutionItems) = preProject
+		docs\ProjectCodeSummary_Bref.md = docs\ProjectCodeSummary_Bref.md
+		docs\think1.md = docs\think1.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
